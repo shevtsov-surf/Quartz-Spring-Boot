@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration
 
 
 @Configuration
-class JobConfig(
+class ShowTimeJobConfig(
     val schedulerProperties: SchedulerProperties
 ) {
 
