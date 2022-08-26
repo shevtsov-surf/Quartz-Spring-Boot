@@ -13,7 +13,7 @@ class ShowTimeJobConfig(
     @Bean
     fun showTimeJobDetail(): JobDetail = JobBuilder
         .newJob(ShowTimeJob::class.java)
-        .withIdentity("testJob", schedulerProperties.permanentJobsGroupName)
+        .withIdentity("showTimeJob", schedulerProperties.permanentJobsGroupName)
         .storeDurably()
         .requestRecovery(true)
         .build()
@@ -21,7 +21,7 @@ class ShowTimeJobConfig(
     @Bean
     fun showTimeTrigger(): Trigger = TriggerBuilder.newTrigger()
         .forJob(showTimeJobDetail())
-        .withIdentity("testJobTrigger", schedulerProperties.permanentJobsGroupName)
+        .withIdentity("showTimeJobTrigger", schedulerProperties.permanentJobsGroupName)
         .withSchedule(CronScheduleBuilder.cronSchedule(schedulerProperties.showTimeJobCron))
         .build()
 }
